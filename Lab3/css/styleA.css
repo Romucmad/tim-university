@@ -1,0 +1,88 @@
+html,body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.head{
+  margin-top: 2em;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+.head div{
+    text-align: center;
+}
+figcaption{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.head img{
+    flex-basis: auto;
+    transform: rotate(1.5deg);
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.6);
+    box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.6);
+    border-radius: 5px;
+    height: 15em;
+
+}
+
+
+.content{
+    display: flex;
+}
+
+
+.box-1{
+    flex : 1;
+}
+.box-1 img{
+    width: 100%;
+    height: auto;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: column;
+}
+.box-2{
+    flex : 1;
+    padding: 1em;
+}
+.box-2 img{
+    margin: 1em;
+}
+
+.quotes {
+    color : red;
+    padding: 5px;
+    margin : 1em;
+
+    font-size: 1.3rem;
+    font-weight: 30em;
+    float: left;
+}
+.box-rest{
+    flex : 1;
+
+}
+
+
+@media(max-width: 800px){
+    
+    .box-1{
+        order: 1000;
+    }
+
+    .content{
+        flex-direction: column;
+    }
+
+}
+
+.footer{
+    text-align: center;
+}
+
