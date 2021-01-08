@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="onSubmit(event)">
+      <input name="first" placeholder="First number" />
+      <input name="second" placeholder="Second number" />
+      <input name="code" placeholder="Code (+,-,/,*)" />
+      <button type="submit">Calculate</button>
+    </form>
+    <h4>Answer is <span id="answer"></span></h4>
+  </body>
+  <script>
+    function onSubmit(e) {
+      e.preventDefault();
+      const first = event.target.elements.first.value;
+      const second = event.target.elements.second.value;
+      const code = event.target.elements.code.value;
+      const data = {
+        first: first,
+        second: second,
+        code: code,
+      };
+      fetch("http://localhost:3000/calculate", {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          document.getElementById("answer").innerText = response.answer;
+        });
+    }
+  </script>
+</html>
